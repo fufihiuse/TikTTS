@@ -5,6 +5,7 @@ const { deleteTemp } = require('../../helpers/deleteTemp.js');
 const path = require('path');
 
 const tempPath = path.resolve(`${__dirname}/temp.mp3`);
+const MAX_TTS_LENGTH = 300;
 
 // Create audio player
 const player = createAudioPlayer({
@@ -37,14 +38,14 @@ const playTTS = async () => {
 };
 
 const main = async (interaction) => {
-    const text = interaction.options.getString('text');
+    const text = interaction.options.getString('text').slice(0, MAX_TTS_LENGTH);
     const voice = interaction.options.getString('voice') ?? 'en_us_002';
 
     let connection = getVoiceConnection(interaction.guild.id);
     const channel = await interaction.member.voice.channel;
 
     if (!channel) {
-        interaction.reply('Join a voice channel!');
+        interaction.editReply('Join a voice channel!');
         return;
     }
     else if (!connection) {
@@ -75,7 +76,7 @@ const main = async (interaction) => {
         catch (err) {
             console.log(`Disconnect error: ${err}`);
             connection.destroy();
-            interaction.reply('Error! Make sure this bot has permission to view the channel and call.');
+            interaction.editReply('Error! Make sure this bot has permission to view the channel and call.');
         }
     });
 
@@ -89,10 +90,10 @@ const main = async (interaction) => {
 
     // Create audio player, play, destroy?
     if (!await getTTS(text, voice)) {
-        interaction.reply('An error occured! If this keeps happening, pester Nyx.');
+        interaction.editReply('An error occured! If this keeps happening, pester Nyx.');
     }
     playTTS();
-    interaction.reply(text);
+    interaction.editReply(text);
 };
 
 // Clear temp file on startup
@@ -139,6 +140,7 @@ module.exports = {
                     { name: 'Chipmunk', value: 'en_male_m2_xhxs_m03_silly' },
                 )),
     async execute(interaction) {
+        await interaction.deferReply({ ephemeral: true });
         await main(interaction);
     },
 };
