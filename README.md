@@ -10,3 +10,6 @@ A Simple discord bot using `tiktok-tts` that allows you to use TikTok's TTS voic
 1. Install the [Cookie Editor](https://cookie-editor.com/) extension
 2. Log into TikTok
 3. Copy the `sessionid` value from cookie editor
+
+### Known Issues:
+- Each instance only has one player. Because of this, if the bot is being used in two or more servers at once, all audio will be played for both servers.

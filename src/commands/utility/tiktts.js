@@ -90,7 +90,7 @@ const main = async (interaction) => {
 
     // Create audio player, play, destroy?
     if (!await getTTS(text, voice)) {
-        interaction.editReply('An error occured! If this keeps happening, pester Nyx.');
+        interaction.editReply('An error occured!');
     }
     playTTS();
     interaction.editReply(text);
