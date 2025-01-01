@@ -49,7 +49,6 @@ const main = async (interaction) => {
         return;
     }
     else if (!connection) {
-        console.log('Already in channel');
         connection = joinVoiceChannel({
             channelId: channel.id,
             guildId: channel.guild.id,
