@@ -1,0 +1,32 @@
+{
+  "name": "tiktok-tts",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pretest": "eslint ./src/**/*.js --fix",
+    "start": "node src/index.js",
+    "deploy-commands": "node src/deployCommands.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@discordjs/opus": "^0.9.0",
+    "@discordjs/voice": "^0.18.0",
+    "bufferutil": "^4.0.8",
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.7",
+    "ffmpeg-static": "^5.2.0",
+    "sodium-native": "^4.3.1",
+    "tiktok-tts": "^1.1.17",
+    "zlib-sync": "^0.1.9"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.2.0",
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "eslint-plugin-import": "^2.31.0",
+    "globals": "^15.14.0"
+  }
+}
