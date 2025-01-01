@@ -8,9 +8,9 @@
     "start": "node src/index.js",
     "deploy-commands": "node src/deployCommands.js"
   },
-  "author": "",
+  "author": "Jackson Majewski",
   "license": "ISC",
-  "description": "",
+  "description": "A Simple discord bot using `tiktok-tts` that allows you to use TikTok's TTS voices.",
   "dependencies": {
     "@discordjs/opus": "^0.9.0",
     "@discordjs/voice": "^0.18.0",
