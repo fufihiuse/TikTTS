@@ -78,6 +78,7 @@ const main = async (interaction) => {
         catch (err) {
             console.log(err);
             connection.destroy();
+            interaction.reply('Error! Make sure this bot has permission to view the channel and call.');
         }
     });
 
