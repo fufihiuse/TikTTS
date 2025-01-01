@@ -15,12 +15,14 @@ const main = async (interaction) => {
 
 	deleteTemp(path.resolve(`${__dirname}/temp.mp3`));
 
-	interaction.react('🫡');
+	interaction.editReply('Goodbye!')
 };
 
 module.exports = {
 	data: new SlashCommandBuilder().setName('leave').setDescription('Leaves the call!'),
 	async execute(interaction) {
+		await interaction.deferReply({ ephemeral: false });
+		interaction.react('\:saluting_face:');
 		await main(interaction);
 	},
 };
