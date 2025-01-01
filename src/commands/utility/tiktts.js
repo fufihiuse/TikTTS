@@ -140,7 +140,7 @@ module.exports = {
                     { name: 'Chipmunk', value: 'en_male_m2_xhxs_m03_silly' },
                 )),
     async execute(interaction) {
-        await interaction.deferReply({ ephemeral: true });
+        await interaction.deferReply({ ephemeral: false });
         await main(interaction);
     },
 };
