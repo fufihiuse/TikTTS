@@ -1,5 +1,5 @@
 # TikTTS
-A Simple discord bot using `tiktok-tts` that allows you to use TikTok's TTS voices.
+A Simple discord bot using [tiktok-tts](https://github.com/Steve0929/tiktok-tts) that allows you to use TikTok's TTS voices.
 
 ## SETUP:
 1. Clone the repository, and run `npm i` inside the folder
