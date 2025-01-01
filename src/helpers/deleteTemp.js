@@ -8,10 +8,8 @@ const deleteTemp = (path) => {
 		});
 	}
 	catch (err) {
-		if (err.code === 'ENOENT') {
-			console.log('The file does not exist!');
-		}
-		else {
+		// Will throw ENOENT if file doesn't exist, so do nothing
+		if (err.code !== 'ENOENT') {
 			console.log(err);
 			return false;
 		}
