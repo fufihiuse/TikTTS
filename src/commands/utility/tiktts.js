@@ -20,7 +20,7 @@ const getTTS = async (msg, voice) => {
         await createAudioFromText(msg, `${__dirname}/temp`, voice);
     }
     catch (err) {
-        console.log(err);
+        console.log(`TTS Error: ${err}`);
         return false;
     }
     return true;
@@ -40,11 +40,8 @@ const main = async (interaction) => {
     const text = interaction.options.getString('text');
     const voice = interaction.options.getString('voice') ?? 'en_us_002';
 
-    console.log(interaction.guild.id);
-
     let connection = getVoiceConnection(interaction.guild.id);
     const channel = await interaction.member.voice.channel;
-    console.log(connection);
 
     if (!channel) {
         interaction.reply('Join a voice channel!');
@@ -76,7 +73,7 @@ const main = async (interaction) => {
             // Probably reconnecting to a new channel
         }
         catch (err) {
-            console.log(err);
+            console.log(`Disconnect error: ${err}`);
             connection.destroy();
             interaction.reply('Error! Make sure this bot has permission to view the channel and call.');
         }
